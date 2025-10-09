@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pascal Combot Traiteur — Roscoff</title>
+  <meta name="description" content="Traiteur à Roscoff : prestations sur mesure pour vos événements, plateaux de charcuterie, plats faits maison et produits locaux. Devis rapide." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root { --brand:#0f172a; --accent:#f59e0b; }
+    html { scroll-behavior: smooth; }
+    body { font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; }
+    .gradient-hero{ background: radial-gradient(60% 80% at 20% 10%, rgba(245,158,11,.25), transparent 60%), radial-gradient(50% 70% at 90% 20%, rgba(255,255,255,.12), transparent 60%), linear-gradient(180deg, #0b1220 0%, #0f172a 60%, #0b1220 100%);} 
+    .hover-lift{transition:transform .25s ease, box-shadow .25s ease}
+    .hover-lift:hover{transform:translateY(-4px); box-shadow:0 10px 30px rgba(0,0,0,.12)}
+    .img-fallback{background:linear-gradient(135deg,#e5e7eb,#cbd5e1); display:flex; align-items:center; justify-content:center; color:#475569; font-size:.8rem}
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+  <!-- Header -->
+  <header class="sticky top-0 z-40 bg-white/80 backdrop-blur border-b border-slate-200" x-data="{open:false}">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <a href="#accueil" class="flex items-center gap-3">
+        <img src="sandbox:/mnt/data/logo_pascal_combot.png" alt="Logo Pascal Combot Traiteur" class="h-10 w-auto"/>
+        <span class="font-semibold">Pascal Combot Traiteur</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <a class="hover:text-amber-600" href="#prestations">Prestations</a>
+        <a class="hover:text-amber-600" href="#plateaux">Plateaux</a>
+        <a class="hover:text-amber-600" href="#boutique">Boutique</a>
+        <a class="hover:text-amber-600" href="#galerie">Galerie</a>
+        <a class="hover:text-amber-600" href="#contact">Contact & Devis</a>
+      </nav>
+      <div class="hidden md:flex items-center gap-3">
+        <a href="#contact" class="px-4 py-2 rounded-xl bg-amber-500 text-white font-medium hover:bg-amber-600">Devis rapide</a>
+      </div>
+      <button class="md:hidden p-2" @click="open=!open" aria-label="Menu">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+    <div x-show="open" x-transition class="md:hidden border-t border-slate-2 00 bg-white">
+      <nav class="px-4 py-3 grid gap-3 text-sm">
+        <a class="py-2" href="#prestations" @click="open=false">Prestations</a>
+        <a class="py-2" href="#plateaux" @click="open=false">Plateaux</a>
+        <a class="py-2" href="#boutique" @click="open=false">Boutique</a>
+        <a class="py-2" href="#galerie" @click="open=false">Galerie</a>
+        <a class="py-2" href="#contact" @click="open=false">Contact & Devis</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="accueil" class="gradient-hero text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
+      <div class="grid lg:grid-cols-2 gap-10 items-center">
+        <div>
+          <h1 class="text-4xl sm:text-5xl font-extrabold leading-tight">Traiteur artisanal à Roscoff<br><span class="text-amber-400">Prestations sur mesure & produits locaux</span></h1>
+          <p class="mt-5 text-slate-200 max-w-xl">Cocktails, mariages, événements familiaux, plateaux de charcuterie et plats faits maison. Service, dressage, nappage et location de vaisselle sur demande. Livraison possible.</p>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a href="#contact" class="px-5 py-3 rounded-xl bg-amber-500 hover:bg-amber-600 font-semibold">Demander un devis</a>
+            <a href="#plateaux" class="px-5 py-3 rounded-xl ring-1 ring-white/40 hover:bg-white/10">Voir les plateaux</a>
+          </div>
+          <div class="mt-8 text-sm opacity-90">📍 7, rue Jules Ferry — 29680 Roscoff · ☎︎ 02 98 69 04 41</div>
+        </div>
+        <div class="relative">
+          <div class="aspect-[4/3] rounded-2xl overflow-hidden ring-1 ring-white/10 shadow-2xl">
+            <img class="w-full h-full object-cover hero-photo" referrerpolicy="no-referrer" loading="eager"
+                 src="https://scontent-cdg4-2.xx.fbcdn.net/v/t39.30808-6/489823895_1255478296582528_5364313608908451521_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=833d8c&_nc_ohc=dH-3l5L5ppYQ7kNvwEwjUoa&_nc_oc=Adn_s4e0Z0WtZy8lxO3ZyvvvTSsBjjvB_DPfD3ebrg7j-wD3n3cEaGgNVuqfbKJVoi4&_nc_zt=23&_nc_ht=scontent-cdg4-2.xx&_nc_gid=nlgwUl-oq_-n7gy2mCpOcQ&oh=00_Afch36DEqJYAswm4ijTT2mzFcKERtfyJE8gs7ctxKeNePQ&oe=68EDCFA4"
+                 alt="Plateau de charcuterie — photo phare Pascal Combot" />
+          </div>
+          <div class="absolute -bottom-6 -right-6 hidden sm:block">
+            <div class="bg-white text-slate-900 rounded-2xl shadow-xl p-4 w-64">
+              <p class="text-sm font-semibold">Événements clés en main</p>
+              <p class="text-xs text-slate-600">Service en salle, dressage & location de vaisselle disponibles.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Prestations -->
+  <section id="prestations" class="py-16 lg:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl">
+        <h2 class="text-3xl font-bold">Prestations de traiteur</h2>
+        <p class="mt-3 text-slate-600">De la réception familiale au cocktail d’entreprise, solutions sur mesure, produits locaux et faits maison.</p>
+      </div>
+      <div class="mt-10 grid md:grid-cols-3 gap-6">
+        <div class="bg-white rounded-2xl p-6 border border-slate-200 hover-lift">
+          <img class="h-36 w-full object-cover rounded-xl mb-4" referrerpolicy="no-referrer" 
+               src="https://scontent-cdg4-1.xx.fbcdn.net/v/t39.30808-6/514398154_1424767082986981_2710068435468578330_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=833d8c&_nc_ohc=sGzsKXYqqCMQ7kNvwFoOH_0&_nc_oc=Adm4hGxIiWWjIwYY3INHeY8kaLB5nuAgUxB499oOON6WAo1KFrLdU4yaUaPzz_vpbfk&_nc_zt=23&_nc_ht=scontent-cdg4-1.xx&_nc_gid=mpSO7nVYTlCvvdtIX6TjGA&oh=00_AffkzQt7MaezwlBiMnQj9VZBUYlQKI-OSfzo6MA8NbnrTw&oe=68EDCFB4" alt="Plateau de charcuterie"/>
+          <h3 class="font-semibold text-lg">Mariages & réceptions</h3>
+          <p class="mt-2 text-sm text-slate-600">Cocktails, buffets froids/chauds, menus assis. Service & dressage inclus sur demande.</p>
+        </div>
+        <div class="bg-white rounded-2xl p-6 border border-slate-200 hover-lift">
+          <img class="h-36 w-full object-cover rounded-xl mb-4" referrerpolicy="no-referrer" 
+               src="https://scontent-cdg4-2.xx.fbcdn.net/v/t39.30808-6/553400322_1413386164125073_2220963777773045358_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=833d8c&_nc_ohc=S5c2Bp0uu4oQ7kNvwEZ7PaL&_nc_oc=Adkoa5R90mkcX0BZhTX2K4ysW3OQmMwm7nbbrTqNt5L8X8BuapJjbUaTlmEnufci10I&_nc_zt=23&_nc_ht=scontent-cdg4-2.xx&_nc_gid=MxZYVhffkhSVRhJUjIhGUg&oh=00_Afd9sqKdcZGnvd1F_7CXjb7udxiUNczeSOu8vEudsuDEIw&oe=68EDC663" alt="Brochettes de légumes"/>
+          <h3 class="font-semibold text-lg">Événements familiaux</h3>
+          <p class="mt-2 text-sm text-slate-600">Anniversaires, baptêmes, communions : formules conviviales et adaptées.</p>
+        </div>
+        <div class="bg-white rounded-2xl p-6 border border-slate-200 hover-lift">
+          <img class="h-36 w-full object-cover rounded-xl mb-4" referrerpolicy="no-referrer" 
+               src="https://scontent-cdg4-3.xx.fbcdn.net/v/t39.30808-6/499718619_1295010879295936_522841290283422585_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=833d8c&_nc_ohc=DxasEmqZErIQ7kNvwHpkKGd&_nc_oc=AdlX8qYBniwBorlmIG4jfJABEGnelV7ixX2-xhdAIfyao1wq5MS-5_hDbLtWFBXXoSU&_nc_zt=23&_nc_ht=scontent-cdg4-3.xx&_nc_gid=9Ivdj-0rXfsRNHB2u1Vhmg&oh=00_Afd54WQpZztK6yrD2AtYA1_MJEPx5dbigbMupV1sLNNFgw&oe=68EDD776" alt="Burger du Chef"/>
+          <h3 class="font-semibold text-lg">Entreprises & associations</h3>
+          <p class="mt-2 text-sm text-slate-600">Afterworks, inaugurations, événements associatifs (SNSM, etc.). Livraison locale.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Plateaux -->
+  <section id="plateaux" class="py-16 lg:py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl">
+        <h2 class="text-3xl font-bold">Plateaux & pièces cocktail</h2>
+        <p class="mt-3 text-slate-600">Nos plateaux de charcuterie et assortiments sont dressés avec soin. Commande 24–48h à l’avance selon quantité.</p>
+      </div>
+      <div class="mt-10 grid md:grid-cols-3 gap-6">
+        <div class="rounded-2xl overflow-hidden border border-slate-200 bg-white hover-lift">
+          <img class="h-44 w-full object-cover" referrerpolicy="no-referrer" 
+               src="https://scontent-cdg4-1.xx.fbcdn.net/v/t39.30808-6/514398154_1424767082986981_2710068435468578330_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=833d8c&_nc_ohc=sGzsKXYqqCMQ7kNvwFoOH_0&_nc_oc=Adm4hGxIiWWjIwYY3INHeY8kaLB5nuAgUxB499oOON6WAo1KFrLdU4yaUaPzz_vpbfk&_nc_zt=23&_nc_ht=scontent-cdg4-1.xx&_nc_gid=mpSO7nVYTlCvvdtIX6TjGA&oh=00_AffkzQt7MaezwlBiMnQj9VZBUYlQKI-OSfzo6MA8NbnrTw&oe=68EDCFB4" alt="Plateau charcuterie terroir">
+          <div class="p-6">
+            <h3 class="font-semibold">Plateau Terroir</h3>
+            <p class="mt-1 text-sm text-slate-600">Saucissons, jambons, rillettes maison, cornichons. Idéal 6–8 pers.</p>
+            <a href="#contact" class="inline-block mt-4 text-amber-600 font-medium">Demander un devis →</a>
+          </div>
+        </div>
+        <div class="rounded-2xl overflow-hidden border border-slate-200 bg-white hover-lift">
+          <img class="h-44 w-full object-cover" referrerpolicy="no-referrer" 
+               src="https://scontent-cdg4-2.xx.fbcdn.net/v/t39.30808-6/553400322_1413386164125073_2220963777773045358_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=833d8c&_nc_ohc=S5c2Bp0uu4oQ7kNvwEZ7PaL&_nc_oc=Adkoa5R90mkcX0BZhTX2K4ysW3OQmMwm7nbbrTqNt5L8X8BuapJjbUaTlmEnufci10I&_nc_zt=23&_nc_ht=scontent-cdg4-2.xx&_nc_gid=MxZYVhffkhSVRhJUjIhGUg&oh=00_Afd9sqKdcZGnvd1F_7CXjb7udxiUNczeSOu8vEudsuDEIw&oe=68EDC663" alt="Buffet froid">
+          <div class="p-6">
+            <h3 class="font-semibold">Buffet froid</h3>
+            <p class="mt-1 text-sm text-slate-600">Assortiments charcutiers, salades composées, pains & condiments. Formules ajustables.</p>
+            <a href="#contact" class="inline-block mt-4 text-amber-600 font-medium">Obtenir une proposition →</a>
+          </div>
+        </div>
+        <div class="rounded-2xl overflow-hidden border border-slate-200 bg-white hover-lift">
+          <img class="h-44 w-full object-cover" referrerpolicy="no-referrer" 
+               src="https://scontent-cdg4-3.xx.fbcdn.net/v/t39.30808-6/499718619_1295010879295936_522841290283422585_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=833d8c&_nc_ohc=DxasEmqZErIQ7kNvwHpkKGd&_nc_oc=AdlX8qYBniwBorlmIG4jfJABEGnelV7ixX2-xhdAIfyao1wq5MS-5_hDbLtWFBXXoSU&_nc_zt=23&_nc_ht=scontent-cdg4-3.xx&_nc_gid=9Ivdj-0rXfsRNHB2u1Vhmg&oh=00_Afd54WQpZztK6yrD2AtYA1_MJEPx5dbigbMupV1sLNNFgw&oe=68EDD776" alt="Pièces cocktail">
+          <div class="p-6">
+            <h3 class="font-semibold">Pièces cocktail</h3>
+            <p class="mt-1 text-sm text-slate-600">Verrines, mini-brochettes, feuilletés salés… Production maison, produits locaux.</p>
+            <a href="#contact" class="inline-block mt-4 text-amber-600 font-medium">Composer mon cocktail →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Boutique -->
+  <section id="boutique" class="py-16 lg:py-20 bg-slate-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl">
+        <h2 class="text-3xl font-bold">Boutique & plats à emporter</h2>
+        <p class="mt-3 text-slate-600">Chaque jour, une sélection de plats faits maison à base de produits locaux : kig ha farz, volailles rôties, tartes, salades…</p>
+      </div>
+      <div class="mt-8 grid md:grid-cols-3 gap-6">
+        <div class="bg-white rounded-2xl p-6 border border-slate-200 hover-lift">
+          <p class="text-sm text-slate-600">📍 7, rue Jules Ferry — Roscoff</p>
+          <p class="mt-2 text-sm text-slate-600">Horaires susceptibles de varier selon saison. Appelez avant de vous déplacer.</p>
+          <a href="#contact" class="mt-4 inline-block text-amber-600 font-medium">Nous appeler →</a>
+        </div>
+        <div class="bg-white rounded-2xl p-6 border border-slate-200 hover-lift">
+          <p class="text-sm">🎣 Produits du pays & saison</p>
+          <p class="mt-2 text-sm text-slate-600">Oignon rosé de Roscoff AOP, artichaut de Saint-Pol, etc.</p>
+        </div>
+        <div class="bg-white rounded-2xl p-6 border border-slate-200 hover-lift">
+          <p class="text-sm">🧊 Chaîne du froid respectée</p>
+          <p class="mt-2 text-sm text-slate-600">Livraison locale et retrait magasin. Emballages adaptés.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Galerie -->
+  <section id="galerie" class="py-16 lg:py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-end justify-between gap-6">
+        <div class="max-w-2xl">
+          <h2 class="text-3xl font-bold">Galerie</h2>
+          <p class="mt-3 text-slate-600">Aperçu de nos réalisations (plateaux, buffets, événements).</p>
+        </div>
+        <a href="https://www.facebook.com/p/Pascal-Combot-Traiteur-100063611077434/" class="text-sm text-amber-700 underline">Voir plus de photos</a>
+      </div>
+      <div class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
+        <figure class="rounded-xl overflow-hidden">
+          <img referrerpolicy="no-referrer" loading="lazy" class="object-cover h-44 w-full" src="https://scontent-cdg4-1.xx.fbcdn.net/v/t39.30808-6/514398154_1424767082986981_2710068435468578330_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=833d8c&_nc_ohc=sGzsKXYqqCMQ7kNvwFoOH_0&_nc_oc=Adm4hGxIiWWjIwYY3INHeY8kaLB5nuAgUxB499oOON6WAo1KFrLdU4yaUaPzz_vpbfk&_nc_zt=23&_nc_ht=scontent-cdg4-1.xx&_nc_gid=mpSO7nVYTlCvvdtIX6TjGA&oh=00_AffkzQt7MaezwlBiMnQj9VZBUYlQKI-OSfzo6MA8NbnrTw&oe=68EDCFB4" alt="Plateau de charcuterie — Pascal Combot" />
+          <figcaption class="px-2 py-1 text-xs text-slate-600 bg-white/80 backdrop-blur rounded-b-xl">Plateau de charcuterie — Pascal Combot</figcaption>
+        </figure>
+        <figure class="rounded-xl overflow-hidden">
+          <img referrerpolicy="no-referrer" loading="lazy" class="object-cover h-44 w-full" src="https://scontent-cdg4-2.xx.fbcdn.net/v/t39.30808-6/554828839_1413385714125118_8663872916686295558_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=833d8c&_nc_ohc=A1g1zS5gXnUQ7kNvwHQ_Yf3&_nc_oc=AdneaI7gchAJOt9WpMih-z3alyN_v5VqVTE3byQuUJvdR670P_9kcLZzhKiaD3bgUXU&_nc_zt=23&_nc_ht=scontent-cdg4-2.xx&_nc_gid=Nmk01Qv4yxgEmlfGi6lBig&oh=00_Afe2Gt5k3HuyOoIbcDMDMSvtO2HylD4VQvSNx-e4vGtqPg&oe=68EDC8A6" alt="Macarons — Pascal Combot" />
+          <figcaption class="px-2 py-1 text-xs text-slate-600 bg-white/80 backdrop-blur rounded-b-xl">Macarons — Pascal Combot</figcaption>
+        </figure>
+        <figure class="rounded-xl overflow-hidden">
+          <img referrerpolicy="no-referrer" loading="lazy" class="object-cover h-44 w-full" src="https://scontent-cdg4-2.xx.fbcdn.net/v/t39.30808-6/553400322_1413386164125073_2220963777773045358_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=833d8c&_nc_ohc=S5c2Bp0uu4oQ7kNvwEZ7PaL&_nc_oc=Adkoa5R90mkcX0BZhTX2K4ysW3OQmMwm7nbbrTqNt5L8X8BuapJjbUaTlmEnufci10I&_nc_zt=23&_nc_ht=scontent-cdg4-2.xx&_nc_gid=MxZYVhffkhSVRhJUjIhGUg&oh=00_Afd9sqKdcZGnvd1F_7CXjb7udxiUNczeSOu8vEudsuDEIw&oe=68EDC663" alt="Brochettes de légumes — Pascal Combot" />
+          <figcaption class="px-2 py-1 text-xs text-slate-600 bg-white/80 backdrop-blur rounded-b-xl">Brochettes de légumes — Pascal Combot</figcaption>
+        </figure>
+        <figure class="rounded-xl overflow-hidden">
+          <img referrerpolicy="no-referrer" loading="lazy" class="object-cover h-44 w-full" src="https://scontent-cdg4-3.xx.fbcdn.net/v/t39.30808-6/499718619_1295010879295936_522841290283422585_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=833d8c&_nc_ohc=DxasEmqZErIQ7kNvwHpkKGd&_nc_oc=AdlX8qYBniwBorlmIG4jfJABEGnelV7ixX2-xhdAIfyao1wq5MS-5_hDbLtWFBXXoSU&_nc_zt=23&_nc_ht=scontent-cdg4-3.xx&_nc_gid=9Ivdj-0rXfsRNHB2u1Vhmg&oh=00_Afd54WQpZztK6yrD2AtYA1_MJEPx5dbigbMupV1sLNNFgw&oe=68EDD776" alt="Le Burger du Chef — confit d’oignons de Roscoff" />
+          <figcaption class="px-2 py-1 text-xs text-slate-600 bg-white/80 backdrop-blur rounded-b-xl">Le Burger du Chef — confit d’oignons de Roscoff</figcaption>
+        </figure>
+        <!-- Doublons pour remplir -->
+        <figure class="rounded-xl overflow-hidden"><img referrerpolicy="no-referrer" loading="lazy" class="object-cover h-44 w-full" src="https://scontent-cdg4-1.xx.fbcdn.net/v/t39.30808-6/514398154_1424767082986981_2710068435468578330_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=833d8c&_nc_ohc=sGzsKXYqqCMQ7kNvwFoOH_0&_nc_oc=Adm4hGxIiWWjIwYY3INHeY8kaLB5nuAgUxB499oOON6WAo1KFrLdU4yaUaPzz_vpbfk&_nc_zt=23&_nc_ht=scontent-cdg4-1.xx&_nc_gid=mpSO7nVYTlCvvdtIX6TjGA&oh=00_AffkzQt7MaezwlBiMnQj9VZBUYlQKI-OSfzo6MA8NbnrTw&oe=68EDCFB4" alt="Plateau de charcuterie — Pascal Combot" /></figure>
+        <figure class="rounded-xl overflow-hidden"><img referrerpolicy="no-referrer" loading="lazy" class="object-cover h-44 w-full" src="https://scontent-cdg4-2.xx.fbcdn.net/v/t39.30808-6/554828839_1413385714125118_8663872916686295558_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=833d8c&_nc_ohc=A1g1zS5gXnUQ7kNvwHQ_Yf3&_nc_oc=AdneaI7gchAJOt9WpMih-z3alyN_v5VqVTE3byQuUJvdR670P_9kcLZzhKiaD3bgUXU&_nc_zt=23&_nc_ht=scontent-cdg4-2.xx&_nc_gid=Nmk01Qv4yxgEmlfGi6lBig&oh=00_Afe2Gt5k3HuyOoIbcDMDMSvtO2HylD4VQvSNx-e4vGtqPg&oe=68EDC8A6" alt="Macarons — Pascal Combot" /></figure>
+        <figure class="rounded-xl overflow-hidden"><img referrerpolicy="no-referrer" loading="lazy" class="object-cover h-44 w-full" src="https://scontent-cdg4-2.xx.fbcdn.net/v/t39.30808-6/553400322_1413386164125073_2220963777773045358_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=833d8c&_nc_ohc=S5c2Bp0uu4oQ7kNvwEZ7PaL&_nc_oc=Adkoa5R90mkcX0BZhTX2K4ysW3OQmMwm7nbbrTqNt5L8X8BuapJjbUaTlmEnufci10I&_nc_zt=23&_nc_ht=scontent-cdg4-2.xx&_nc_gid=MxZYVhffkhSVRhJUjIhGUg&oh=00_Afd9sqKdcZGnvd1F_7CXjb7udxiUNczeSOu8vEudsuDEIw&oe=68EDC663" alt="Brochettes de légumes — Pascal Combot" /></figure>
+        <figure class="rounded-xl overflow-hidden"><img referrerpolicy="no-referrer" loading="lazy" class="object-cover h-44 w-full" src="https://scontent-cdg4-3.xx.fbcdn.net/v/t39.30808-6/499718619_1295010879295936_522841290283422585_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=833d8c&_nc_ohc=DxasEmqZErIQ7kNvwHpkKGd&_nc_oc=AdlX8qYBniwBorlmIG4jfJABEGnelV7ixX2-xhdAIfyao1wq5MS-5_hDbLtWFBXXoSU&_nc_zt=23&_nc_ht=scontent-cdg4-3.xx&_nc_gid=9Ivdj-0rXfsRNHB2u1Vhmg&oh=00_Afd54WQpZztK6yrD2AtYA1_MJEPx5dbigbMupV1sLNNFgw&oe=68EDD776" alt="Le Burger du Chef — confit d’oignons de Roscoff" /></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-16 lg:py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-10">
+        <div>
+          <h2 class="text-3xl font-bold">Contact & devis</h2>
+          <p class="mt-3 text-slate-600">Dites-nous la date, le lieu, le nombre de convives et le type d’événement. Nous vous répondons rapidement.</p>
+          <div class="mt-6 space-y-3 text-sm">
+            <p>☎︎ <a class="underline" href="tel:+33298690441">02 98 69 04 41</a></p>
+            <p>✉︎ <a class="underline" href="mailto:pascalcombot@orange.fr">pascalcombot@orange.fr</a></p>
+            <p>📍 7, rue Jules Ferry, 29680 Roscoff</p>
+          </div>
+          <div class="mt-6 text-sm text-slate-600">
+            <p>Zones desservies : Roscoff, Saint-Pol-de-Léon, Cléder, Île de Batz, Plouescat et alentours.</p>
+          </div>
+        </div>
+        <form class="bg-slate-50 rounded-2xl p-6 border border-slate-200 grid gap-4">
+          <div>
+            <label class="block text-sm font-medium">Nom</label>
+            <input class="mt-1 w-full rounded-xl border-slate-300 focus:border-amber-500 focus:ring-amber-500" placeholder="Votre nom" type="text" />
+          </div>
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-sm font-medium">Email</label>
+              <input class="mt-1 w-full rounded-xl border-slate-300 focus:border-amber-500 focus:ring-amber-500" placeholder="vous@exemple.fr" type="email" />
+            </div>
+            <div>
+              <label class="block text-sm font-medium">Téléphone</label>
+              <input class="mt-1 w-full rounded-xl border-slate-300 focus:border-amber-500 focus:ring-amber-500" placeholder="06 00 00 00 00" type="tel" />
+            </div>
+          </div>
+          <div class="grid sm:grid-cols-3 gap-4">
+            <div>
+              <label class="block text-sm font-medium">Date</label>
+              <input class="mt-1 w-full rounded-xl border-slate-300 focus:border-amber-500 focus:ring-amber-500" type="date" />
+            </div>
+            <div>
+              <label class="block text-sm font-medium">Ville</label>
+              <input class="mt-1 w-full rounded-xl border-slate-300 focus:border-amber-500 focus:ring-amber-500" placeholder="Roscoff" type="text" />
+            </div>
+            <div>
+              <label class="block text-sm font-medium">Convives</label>
+              <input class="mt-1 w-full rounded-xl border-slate-300 focus:border-amber-500 focus:ring-amber-500" placeholder="50" type="number" />
+            </div>
+          </div>
+          <div>
+            <label class="block text-sm font-medium">Type d’événement</label>
+            <select class="mt-1 w-full rounded-xl border-slate-300 focus:border-amber-500 focus:ring-amber-500">
+              <option>Cocktail</option>
+              <option>Buffet</option>
+              <option>Repas assis</option>
+              <option>Autre</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-sm font-medium">Message</label>
+            <textarea class="mt-1 w-full rounded-xl border-slate-300 focus:border-amber-500 focus:ring-amber-500" rows="4" placeholder="Précisez vos attentes, allergies, budget estimatif…"></textarea>
+          </div>
+          <button type="button" class="mt-2 px-5 py-3 rounded-xl bg-amber-500 text-white font-semibold hover:bg-amber-600">Envoyer la demande</button>
+          <p class="text-xs text-slate-500">(Formulaire de démonstration – envoyer un email ou appeler pour une réponse immédiate.)</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-slate-900 text-slate-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 grid md:grid-cols-3 gap-8">
+      <div>
+        <h3 class="font-semibold text-white">Pascal Combot Traiteur</h3>
+        <p class="mt-2 text-sm">Traiteur artisanal à Roscoff — prestations sur mesure, plateaux de charcuterie et plats à emporter.</p>
+      </div>
+      <div>
+        <h4 class="font-semibold text-white">Coordonnées</h4>
+        <ul class="mt-2 space-y-1 text-sm">
+          <li>7, rue Jules Ferry, 29680 Roscoff</li>
+          <li>Tél. <a href="tel:+33298690441" class="underline">02 98 69 04 41</a></li>
+          <li>Email <a href="mailto:pascalcombot@orange.fr" class="underline">pascalcombot@orange.fr</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold text-white">Suivre</h4>
+        <ul class="mt-2 space-y-1 text-sm">
+          <li><a class="underline" href="https://www.facebook.com/p/Pascal-Combot-Traiteur-100063611077434/">Facebook</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-white/10">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 text-xs text-slate-400 flex items-center justify-between">
+        <p>© <span id="year"></span> Pascal Combot Traiteur · Tous droits réservés</p>
+        <a href="#accueil" class="underline">Haut de page</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
