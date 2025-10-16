@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" fill="none">
+  <!-- Simple orange circle with centered white fork -->
+  <circle cx="32" cy="32" r="30" fill="#f59e0b" />
+  <g fill="#ffffff" transform="translate(22,12)">
+    <!-- fork prongs -->
+    <rect x="3" y="0" width="3" height="12" rx="1" />
+    <rect x="8" y="0" width="3" height="12" rx="1" />
+    <rect x="13" y="0" width="3" height="12" rx="1" />
+    <!-- connector -->
+    <rect x="6" y="10" width="7" height="4" rx="1" />
+    <!-- handle -->
+    <rect x="9" y="14" width="3" height="18" rx="1.5" />
+  </g>
+</svg>
